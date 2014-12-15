@@ -47,7 +47,7 @@ WORKDIR /root
 ENV HOME /root
 RUN cabal update
 RUN echo 'export PATH=/root/.cabal/bin:$PATH' >> /root/.bashrc
-RUN cabal install Cabal
+RUN cabal install Cabal-1.20.0.2
 RUN cabal install ghc-mod-4.1.6
 
 # Cabal defaults.
