@@ -40,14 +40,15 @@ RUN sed -i 's/# en_AU.UTF-8 UTF-8/en_AU.UTF-8 UTF-8/g' /etc/locale.gen
 RUN locale-gen
 
 # GHC and friends
-RUN apt-get -qqy install ghc ghc-prof ghc-haddock cabal-install happy alex
+RUN apt-get -qqy install ghc ghc-prof ghc-haddock happy alex
+RUN wget http://snapshot.debian.org/archive/debian/20140609T162725Z/pool/main/h/haskell-cabal-install/cabal-install_1.20.0.2-1_amd64.deb -O /tmp/cabal-install_1.20.0.2-1_amd64.deb
+RUN dpkg -i /tmp/cabal-install_1.20.0.2-1_amd64.deb
 WORKDIR /root
 ENV HOME /root
 RUN cabal update
-RUN cabal install cabal-install
 RUN echo 'export PATH=/root/.cabal/bin:$PATH' >> /root/.bashrc
-RUN /root/.cabal/bin/cabal update
-RUN /root/.cabal/bin/cabal install ghc-mod-4.1.6
+RUN cabal install Cabal
+RUN cabal install ghc-mod-4.1.6
 
 # Cabal defaults.
 RUN sed -i 's/-- documentation: False/documentation: True/g'         /root/.cabal/config
