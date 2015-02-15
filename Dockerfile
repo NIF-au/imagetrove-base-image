@@ -54,3 +54,6 @@ RUN cabal install ghc-mod-4.1.6
 RUN sed -i 's/-- documentation: False/documentation: True/g'         /root/.cabal/config
 RUN sed -i 's/-- library-profiling: False/library-profiling: True/g' /root/.cabal/config
 RUN sed -i 's/-- jobs:/jobs: $ncpus/g'                               /root/.cabal/config
+
+# Set the timezone.
+RUN echo Australia/Brisbane > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
