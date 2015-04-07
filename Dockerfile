@@ -33,6 +33,8 @@ RUN pip install PyCrypto
 RUN pip install pwgen
 RUN pip install django-longerusernameandemail
 RUN pip install south
+RUN pip install django-axes
+RUN pip install pytz
 
 # Locale needs to be right for various Haskell packages.
 RUN echo 'export LANG=en_AU.UTF-8' >> /root/.bashrc
