@@ -1,6 +1,6 @@
-Base docker image for https://github.com/carlohamalainen/imagetrove
+Base docker image for https://github.com/NIF-au/imagetrove
 
-See also https://registry.hub.docker.com/u/carlohamalainen/imagetrove-base/
+See also https://registry.hub.docker.com/u/NIF-au/imagetrove-base/
 
 Note to self for updating the image on the Docker Hub:
 
